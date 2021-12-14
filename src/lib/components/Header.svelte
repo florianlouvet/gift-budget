@@ -20,9 +20,6 @@
 				<li class:active={$page.path === '/signin'}>
 					<a sveltekit:prefetch href="/signin">Sign In</a>
 				</li>
-				<li class:active={$page.path === '/signup'}>
-					<a sveltekit:prefetch href="/signup">Sign Up</a>
-				</li>
 			{:else if $session.user}
 				<li class="greetings">Welcome, {$session.user.email}</li>
 				<li class="a-like">
