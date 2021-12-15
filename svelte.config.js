@@ -1,3 +1,4 @@
+import preprocess from 'svelte-preprocess';
 import vercel from '@sveltejs/adapter-vercel';
 
 export default {
@@ -6,4 +7,10 @@ export default {
 		target: '#svelte',
 		// ssr: false
 	},
+
+	preprocess: [
+		preprocess({
+			postcss: true,
+		}),
+	],
 };
