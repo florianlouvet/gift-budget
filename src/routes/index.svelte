@@ -20,7 +20,9 @@
 		]);
 
 		if (ok) {
-			const user_balance = Object.fromEntries(users.map(user => [user.id, 0]));
+			const user_balance = Object.fromEntries(
+				users.map((user) => [user.id, 0])
+			);
 			if (gifts.length > 0) {
 				const sum_by_user = sumByGroup(gifts, 'family_user_id', 'price');
 				const common_ammount = smallestValue(sum_by_user, 'price').price;
@@ -30,6 +32,7 @@
 						sum.price -
 							common_ammount +
 							common_ammount *
+								2 *
 								(settings_as_obj[sum.family_user_id].weight / 100)
 					);
 				}
