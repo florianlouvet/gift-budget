@@ -1,0 +1,17 @@
+{
+    "short_name": "gift-budget",
+    "name": "Gift budget",
+    "start_url": "/",
+    "icons": [
+      {
+        "src": "logo_512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "background_color": "#570df8",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#570df8",
+    "description": "Gift budget splitter for our couple"
+}

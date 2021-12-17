@@ -1,4 +1,5 @@
 {
+	"name": "Gift budget",
 	"private": true,
 	"type": "module",
 	"scripts": {

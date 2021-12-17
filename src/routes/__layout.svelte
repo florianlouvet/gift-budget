@@ -15,11 +15,14 @@
 <script>
 	import '../app.css';
 	import Menu from '$lib/components/Menu.svelte';
+	import { navigating } from '$app/stores';
 </script>
 
 <div class="flex flex-col h-screen">
-	<Menu/>
-	<slot />
+	<Menu />
+	{#if $navigating}
+		<p>Loading...</p>
+	{:else}
+		<slot />
+	{/if}
 </div>
-
-
