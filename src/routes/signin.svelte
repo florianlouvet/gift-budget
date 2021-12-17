@@ -1,15 +1,11 @@
 <script context="module">
 	export async function load({ page }) {
 		const error = page.query.get('error');
-		const password_recovery = page.query.get('type') == 'recovery';
-		const access_token = page.query.get('access_token');
 
 		if (error) {
 			return {
 				props: {
 					error,
-					password_recovery,
-					access_token,
 				},
 			};
 		}
@@ -18,9 +14,21 @@
 </script>
 
 <script>
+	import { browser } from '$app/env';
 	export let error = null;
-	export let password_recovery = false;
-	export let access_token = null;
+
+	let password_recovery = false;
+	let access_token = null;
+
+	if (browser) {
+		const hash = window.location.hash.substring(1);
+		for (const hash_param of hash.split('&')) {
+			const [key, value] = hash_param.split('=');
+			if (key == 'type' && (value == 'recovery' || value == 'invite'))
+				password_recovery = true;
+			if (key == 'access_token') access_token = value;
+		}
+	}
 </script>
 
 {#if password_recovery}
@@ -77,7 +85,7 @@
 					id="password2"
 				/>
 			</div>
-			<input type="hidden" value={access_token} name="access_token">
+			<input type="hidden" value={access_token} name="access_token" />
 			<button class="btn btn-primary" type="submit">Confirm</button>
 		</div>
 	</form>
