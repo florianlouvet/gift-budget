@@ -16,12 +16,13 @@
 	import '../app.css';
 	import Menu from '$lib/components/Menu.svelte';
 	import { navigating } from '$app/stores';
+	import HearthLoader from '$lib/components/HearthLoader.svelte';
 </script>
 
-<div class="flex flex-col h-screen">
+<div class="flex flex-col h-screen w-full">
 	<Menu />
 	{#if $navigating}
-		<p>Loading...</p>
+		<HearthLoader />
 	{:else}
 		<slot />
 	{/if}
