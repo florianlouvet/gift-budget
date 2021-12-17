@@ -1,12 +1,12 @@
 <script context="module" lang="ts">
-	const publicPages = ['/', '/signin', '/signup'];
+	const publicPages = ['/signin'];
 	export async function load({ page, session }) {
 		const { path } = page;
 		if (!session.user) {
 			if (publicPages.includes(path)) {
 				return {};
 			}
-			return { status: 403, error: new Error('Forbidden') };
+			return { status: 302, redirect: '/signin' };
 		}
 		return {};
 	}
@@ -14,8 +14,12 @@
 
 <script>
 	import '../app.css';
-	import Header from '$lib/components/Header.svelte';
+	import Menu from '$lib/components/Menu.svelte';
 </script>
 
-<Header/>
-<slot />
+<div class="flex flex-col h-screen">
+	<Menu/>
+	<slot />
+</div>
+
+
