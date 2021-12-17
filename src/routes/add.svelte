@@ -37,7 +37,7 @@
 	</div>
   </div>
 {/if}
-<form action="/add.json" method="post" class="flex flex-col items-stretch">
+<form action="/gifts.json" method="post" class="flex flex-col items-stretch">
 	<div class="px-6 card bordered">
 		<div class="form-control my-3">
 			<label class="label" for="description">
